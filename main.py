@@ -13,6 +13,9 @@ templates = Jinja2Templates(directory="template")
 async def index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
+@app.get("/info")
+async def info():
+    return {"Name" : "QRGen"}
 
 @app.post("/generate-qr")
 async def generate_qr(data: dict):
